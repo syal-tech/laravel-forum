@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Riari\Forum\Models\Category;
 use Riari\Forum\Models\Thread;
 use Riari\Forum\Support\Stats;
+use Illuminate\Support\Facades\Artisan;
 
 class ThreadObserver
 {
@@ -11,6 +12,8 @@ class ThreadObserver
     {
         // Increment thread count on the category
         $thread->category->increment('thread_count');
+
+        Artisan::call('forum:auto-subscribe');
     }
 
     public function updating($thread)
