@@ -44,7 +44,7 @@ class NotifySubscribers extends Command
             $isThreadAuthorSubscribed = false;
 
             $subscriptions->each(function ($subscription) use ($post) {
-                if ($post->author_id !== $subscription->user_id) {
+                if ($post->author_id !== $subscription->user_id && !is_null($subscription->user)) {
                     Mail::to($subscription->user)->send(new NewPostCreated($post, $subscription->user, $subscription));
                 }
             });
@@ -56,7 +56,7 @@ class NotifySubscribers extends Command
             }
 
             if (!$isThreadAuthorSubscribed) {
-                if ($post->author_id !== $post->thread->author_id) {
+                if ($post->author_id !== $post->thread->author_id && !is_null($post->thread->author)) {
                     Mail::to($post->thread->author)->send(new NewPostCreated($post, $post->thread->author, null));
                 }
             }
