@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Riari\Forum\Models\ForumSubscription;
 use Riari\Forum\Models\Post;
+use Riari\Forum\Frontend\Support\Forum;
 
 class NewPostCreated extends Mailable
 {
@@ -30,6 +31,11 @@ class NewPostCreated extends Mailable
     public $subscription;
 
     /**
+     * @var string
+     */
+    public $url = '';
+
+    /**
      * Create a new message instance.
      *
      * @param Post $post
@@ -41,6 +47,8 @@ class NewPostCreated extends Mailable
         $this->post = $post;
         $this->user = $user;
         $this->subscription = $subscription;
+
+        $this->url = Forum::route('thread.show', $post);
     }
 
     /**

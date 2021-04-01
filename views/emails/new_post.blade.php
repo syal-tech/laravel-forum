@@ -1,7 +1,13 @@
 @component('mail::message')
-## New post from {{ $post->author->first_name  }} posted
+## New post from {{ $post->author->first_name  }}
 
-{!! $post->content !!}<br><br><br>
+@component('mail::panel')
+{!! $post->content !!}
+@endcomponent
+
+<p>
+    <a href="{{ $url }}" class="button button-naesa" target="_blank">View in Naesa</a>
+</p><br/>
 
 @if ($subscription)
 <hr>
