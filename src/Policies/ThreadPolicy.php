@@ -38,7 +38,7 @@ class ThreadPolicy
      */
     public function reply($user, Thread $thread)
     {
-        return !$thread->locked;
+        return !$thread->locked && $user->hasMemberAccess();
     }
 
     /**

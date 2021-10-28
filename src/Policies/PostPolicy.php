@@ -14,7 +14,7 @@ class PostPolicy
      */
     public function edit($user, Post $post)
     {
-        return $user->getKey() === $post->author_id;
+        return $user->getKey() === $post->author_id && $user->hasMemberAccess();
     }
 
     /**
