@@ -35,17 +35,17 @@ return [
     | Cache lifetimes
     |--------------------------------------------------------------------------
     |
-    | Here we specify cache lifetimes (in minutes) for various model data. Any
+    | Here we specify cache lifetimes (in seconds) for various model data. Any
     | falsey values set here will cause the cache to use the default lifetime
     | for corresponding models/attributes.
     |
     */
 
     'cache_lifetimes' => [
-        'default' => 5,
+        'default' => 300,
         'Category' => [
-            'deepestChild'  => 720,
-            'depth'         => 720
+            'deepestChild'  => 43200,
+            'depth'         => 43200
         ]
     ],
 

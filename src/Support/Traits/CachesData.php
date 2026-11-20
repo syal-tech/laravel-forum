@@ -1,6 +1,6 @@
 <?php namespace Riari\Forum\Support\Traits;
 
-use Cache;
+use Illuminate\Support\Facades\Cache;
 use ReflectionClass;
 
 trait CachesData

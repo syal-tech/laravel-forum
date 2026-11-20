@@ -16,11 +16,6 @@ class Post extends BaseModel
      */
     protected $table = 'forum_posts';
 
-    /**
-     * @var array
-     */
-    protected $dates = ['deleted_at'];
-
 	/**
 	 * The attributes that are mass assignable.
 	 *

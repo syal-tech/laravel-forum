@@ -83,11 +83,11 @@ class ForumServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
-            "{$this->baseDir()}migrations/" => base_path('database/migrations')
+            "{$this->baseDir()}migrations/" => database_path('migrations')
         ], 'migrations');
 
         $this->publishes([
-            "{$this->baseDir()}translations/" => base_path('resources/lang/vendor/forum'),
+            "{$this->baseDir()}translations/" => lang_path('vendor/forum'),
         ], 'translations');
     }
 

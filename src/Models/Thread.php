@@ -18,11 +18,6 @@ class Thread extends BaseModel
     protected $table = 'forum_threads';
 
     /**
-     * @var array
-     */
-    protected $dates = ['deleted_at'];
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array

@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Riari\Forum\Models\ForumSubscription;
 use Riari\Forum\Models\Post;
@@ -52,14 +54,22 @@ class NewPostCreated extends Mailable
     }
 
     /**
-     * Build the message.
+     * Get the message envelope.
      *
-     * @return $this
+     * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function build()
+    public function envelope(): Envelope
     {
-        return $this
-            ->subject('NAESA - New Post')
-            ->markdown('forum::emails.new_post');
+        return new Envelope(subject: 'NAESA - New Post');
+    }
+
+    /**
+     * Get the message content definition.
+     *
+     * @return \Illuminate\Mail\Mailables\Content
+     */
+    public function content(): Content
+    {
+        return new Content(markdown: 'forum::emails.new_post');
     }
 }

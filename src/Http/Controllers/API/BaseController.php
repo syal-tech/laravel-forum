@@ -5,7 +5,6 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 
@@ -248,7 +247,7 @@ abstract class BaseController extends Controller
      * @param  array  $customAttributes
      * @return void
      *
-     * @throws \Illuminate\Http\Exception\HttpResponseException
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function validate(Request $request, array $rules = [], array $messages = [], array $customAttributes = [])
     {
